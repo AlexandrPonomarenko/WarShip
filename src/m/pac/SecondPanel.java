@@ -11,7 +11,7 @@ public class SecondPanel extends JPanel
     private int recHeight = 0;
     private int [][] arrayField;
     private int [][] arrayFieldTwo;
-    //private int[] tempArrayCor = new int[2];
+
     private boolean flagRec;
     private boolean flag = false;
 

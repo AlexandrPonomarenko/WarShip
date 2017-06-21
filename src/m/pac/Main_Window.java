@@ -3,10 +3,7 @@ package m.pac;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 public class Main_Window extends JFrame
 {
@@ -15,16 +12,18 @@ public class Main_Window extends JFrame
     private JPanel mainPanel;
     private FirstPanel fp;
     private SecondPanel sp;
+    private DinamicPanel dp;
+    private DinamicSecondPanel dsp;
     private Drawing gr;
+    private int width = 1000;
+    private int height = 500;
     private boolean flag = true;
 
     public Main_Window()
     {
-        setSize(new Dimension(1000,500));
+        setSize(new Dimension(width, height));
 
-        //gbl = new GridBagLayout();
         setLayout(new BorderLayout());
-        //gbc = new GridBagConstraints();
 
         mainPanel = new JPanel();
         setMainPanel(mainPanel);
@@ -49,6 +48,21 @@ public class Main_Window extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                dp = new DinamicPanel(950, height);
+                dsp = new DinamicSecondPanel(50, height);
+                mainPanel.removeAll();
+                mainPanel.revalidate();
+                repaint();
+                //mainPanel.setLayout(new GridLayout(0,2));
+                mainPanel.setLayout(new GridBagLayout());
+                mainPanel.add(dsp, new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.NORTH, GridBagConstraints.VERTICAL,
+                        new Insets(0,0,0,0), 0,0));
+
+                mainPanel.add(dp, new GridBagConstraints(1, 0, 1, 1, 1, 1, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+                        new Insets(0,0,0,0), 0,0));
+//                mainPanel.add(dp);
+//                mainPanel.add(dsp);
+                //pack();
 
             }
         });
@@ -66,14 +80,15 @@ public class Main_Window extends JFrame
         menu.add(itemExit);
 
         System.out.println(getSize() + "+++++++++++++++++++++++++++");
-        clickMauseField();
+        clickMouseField();
+        addWindowListener();
     }
 
     private void setMainPanel(JPanel panel)
     {
         add(panel, BorderLayout.CENTER);
 
-        panel.setBackground(Color.gray);
+        //panel.setBackground(Color.gray);
         System.out.println(panel.getSize() + "PERvaz panell");
     }
 
@@ -90,7 +105,29 @@ public class Main_Window extends JFrame
         System.out.println(panel.getPreferredSize());
     }
 
-    private void clickMauseField()
+    private void addWindowListener()
+    {
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                super.windowOpened(e);
+                if(dsp != null && dp != null)
+                {
+                    dsp.setFlag(true);
+                    System.out.println("WINDOWLISTENER");
+                }
+            }
+            public void windowStateChanged(WindowEvent e)
+            {
+                if(dsp != null && dp != null)
+                {
+                    dsp.setFlag(true);
+                    System.out.println("WINDOWLISTENER");
+                }
+            }
+        });
+    }
+    private void clickMouseField()
     {
         sp.addMouseListener(new MouseListener() {
             @Override
