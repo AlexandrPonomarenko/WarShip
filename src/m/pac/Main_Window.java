@@ -48,8 +48,10 @@ public class Main_Window extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                dp = new DinamicPanel(950, height);
-                dsp = new DinamicSecondPanel(50, height);
+                setSizeFrame((width / 100) * 60, height);
+                dp = new DinamicPanel((width / 100) * 60, getHeight());
+                dsp = new DinamicSecondPanel((((width / 100) * 60) / 100) * 10, getHeight());
+                System.out.println(getWidth() + " ccccccccccccccccccccc " + getHeight());
                 mainPanel.removeAll();
                 mainPanel.revalidate();
                 repaint();
@@ -60,8 +62,13 @@ public class Main_Window extends JFrame
 
                 mainPanel.add(dp, new GridBagConstraints(1, 0, 1, 1, 1, 1, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
                         new Insets(0,0,0,0), 0,0));
-//                mainPanel.add(dp);
-//                mainPanel.add(dsp);
+                dsp.addMyEventListener(new MyEventListener() {
+                    @Override
+                    public void clickButton(MyEventObject eventObject) {
+                        dp.setButtonState(eventObject.getState());
+                    }
+                });
+
                 //pack();
 
             }
@@ -105,25 +112,26 @@ public class Main_Window extends JFrame
         System.out.println(panel.getPreferredSize());
     }
 
+    private void setSizeFrame(int w, int h){setSize(w,h);}
     private void addWindowListener()
     {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowOpened(WindowEvent e) {
                 super.windowOpened(e);
-                if(dsp != null && dp != null)
-                {
-                    dsp.setFlag(true);
-                    System.out.println("WINDOWLISTENER");
-                }
+//                if(dsp != null && dp != null)
+//                {
+//                    dsp.setFlag(true);
+//                    System.out.println("WINDOWLISTENER");
+//                }
             }
             public void windowStateChanged(WindowEvent e)
             {
-                if(dsp != null && dp != null)
-                {
-                    dsp.setFlag(true);
-                    System.out.println("WINDOWLISTENER");
-                }
+//                if(dsp != null && dp != null)
+//                {
+//                    dsp.setFlag(true);
+//                    System.out.println("WINDOWLISTENER");
+//                }
             }
         });
     }
