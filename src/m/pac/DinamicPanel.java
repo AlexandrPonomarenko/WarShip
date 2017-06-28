@@ -26,6 +26,7 @@ public class DinamicPanel extends JPanel
 
     private int [][] arrayField;
     private boolean flag = true;
+    private boolean flagColor = true;
     private String buttonState;
     private int stateShip = 1;
     private int stateShipVerOrHor = 1;
@@ -88,15 +89,24 @@ public class DinamicPanel extends JPanel
 //        graphics2D.setColor(Color.red);
         if(flag)
         {
-            if(stateShipVerOrHor == 1)
-            {
-                g.fillRect(mouseX - (recWidth / 2), mouseY - (recHeight / 2), recWidth * stateShip, recHeight);
+            if(flagColor) {
+                if (stateShipVerOrHor == 1) {
+                    g.fillRect(mouseX - (recWidth / 2), mouseY - (recHeight / 2), recWidth * stateShip, recHeight);
 //                graphics2D.drawRect(mouseX - (recWidth / 2), mouseY - (recHeight / 2), recWidth * stateShip, recHeight);
-            }else
-                {
+                } else {
                     g.fillRect(mouseX - (recWidth / 2), mouseY - (recHeight / 2), recWidth, recHeight * stateShip);
 //                    graphics2D.drawRect(mouseX - (recWidth / 2), mouseY - (recHeight / 2), recWidth, recHeight * stateShip);
                 }
+            }else{
+                g.setColor(Color.RED);
+                if (stateShipVerOrHor == 1) {
+                    g.fillRect(mouseX - (recWidth / 2), mouseY - (recHeight / 2), recWidth * stateShip, recHeight);
+//                graphics2D.drawRect(mouseX - (recWidth / 2), mouseY - (recHeight / 2), recWidth * stateShip, recHeight);
+                } else {
+                    g.fillRect(mouseX - (recWidth / 2), mouseY - (recHeight / 2), recWidth, recHeight * stateShip);
+//                    graphics2D.drawRect(mouseX - (recWidth / 2), mouseY - (recHeight / 2), recWidth, recHeight * stateShip);
+                }
+            }
         }
     }
 
@@ -229,7 +239,11 @@ public class DinamicPanel extends JPanel
                 {
                     mouseX = e.getX();
                     mouseY = e.getY();
-                    checkCell(left, width - right, width - left - right, e.getX(),e.getY());
+                    if(checkCell(left, width - right, recWidth * 10, e.getX(),e.getY()))
+                    {
+                        flagColor = true;
+                    }else{flagColor = false;}
+//                    checkCell(left, width - right, width - left - right, e.getX(),e.getY());
 //                    System.out.println(mouseX + " ======= " + mouseY);
                     repaint();
                 }
@@ -279,13 +293,11 @@ public class DinamicPanel extends JPanel
         boolean flag = false;
         boolean flagX = false;
         boolean flagY = false;
-        System.out.println("x " + x + " " + startPoz + " " + length);
         if((x >= startPoz && x <= border)  && (y >= top && y <= height - bottom))
         {
-
-            for (int i = startPoz, i2 = 0; i <= length + startPoz; i += recWidth, i2++)
+            for (int i = startPoz, i2 = 0; i < length + startPoz; i += recWidth, i2++)
             {
-                System.out.println("i " + i + " " + x);
+                //System.out.println("i " + i + " " + x);
                 if (i + recWidth > x)
                 {
                     indexX = i2;
@@ -294,7 +306,7 @@ public class DinamicPanel extends JPanel
                 }
             }
 
-            for (int i = top, i2 = 0; i < height - bottom; i += recHeight, i2++)
+            for (int i = top, i2 = 0; i < recHeight * 10 + top; i += recHeight, i2++)
             {
                 if (i + recHeight > y)
                 {
@@ -303,8 +315,6 @@ public class DinamicPanel extends JPanel
                     break;
                 }
             }
-            System.out.println(indexX + " " + indexY);
-            System.out.println(x + " X ---- Y" + y);
             if (flagX && flagY) {
                 if(arrayField[indexX][indexY] == 1) {
                     return false;
@@ -325,20 +335,20 @@ public class DinamicPanel extends JPanel
                             }
                         } else
                             {
-//                                if(stateShip == 1)
-//                                {
-//                                    flag = checkOneShipHOrV(indexX, indexY);
-//                                }
-//                                else if(stateShip == 2)
-//                                {
-//                                    flag = checkTwoShipH(indexX, indexY);
-//                                }else if(stateShip == 3)
-//                                {
-//                                    flag = checkThreeShipH(indexX, indexY);
-//                                } else if(stateShip == 4)
-//                                {
-//                                    flag = checkFourShipH(indexX, indexY);
-//                                }
+                                if(stateShip == 1)
+                                {
+                                    flag = checkOneShipHOrV(indexX, indexY);
+                                }
+                                else if(stateShip == 2)
+                                {
+                                    flag = checkTwoShipH(indexX, indexY);
+                                }else if(stateShip == 3)
+                                {
+                                    flag = checkThreeShipH(indexX, indexY);
+                                } else if(stateShip == 4)
+                                {
+                                    flag = checkFourShipH(indexX, indexY);
+                                }
                             }
                 }
             }
@@ -346,147 +356,167 @@ public class DinamicPanel extends JPanel
         return flag;
     }
 
+    private boolean isInside(int x, int y) {
+        boolean result = true;
+
+        if (x < 0 || x > 9 || y < 0 || y > 9) {
+            result = false;
+        }
+
+        return result;
+    }
+
+    private boolean isPointEmty(int x, int y) {
+        boolean result = true;
+
+        // top
+        if (isInside(x, y - 1 ) && arrayField[x][y - 1] == 1) {
+            result = false;
+        }
+
+        // top right
+        if (isInside(x + 1, y - 1 ) && arrayField[x + 1][y - 1] == 1) {
+            result = false;
+        }
+
+        // right
+        if (isInside(x + 1, y ) && arrayField[x + 1][y] == 1) {
+            result = false;
+        }
+
+        // bottom right
+        if (isInside(x + 1, y + 1 ) && arrayField[x + 1][y + 1] == 1) {
+            result = false;
+        }
+
+        // bottom
+        if (isInside(x, y + 1 ) && arrayField[x][y + 1] == 1) {
+            result = false;
+        }
+
+        // bottom left
+        if (isInside(x - 1, y + 1 ) && arrayField[x - 1][y + 1] == 1) {
+            result = false;
+        }
+
+        // left
+        if (isInside(x - 1, y ) && arrayField[x - 1][y] == 1) {
+            result = false;
+        }
+
+        // top left
+        if (isInside(x - 1, y - 1 ) && arrayField[x - 1][y - 1] == 1) {
+            result = false;
+        }
+
+        return result;
+    }
+
     private boolean checkOneShipHOrV(int startX, int startY)
     {
-        int top = 1;
-        int bottom = 1;
-        int left = 1;
-        int right = 1;
-                                              //top
-        if(!((arrayField[startX][startY - top] != 1 && arrayField[startX][startY - top] >= 0)&&
-                                                //right_top
-                (arrayField[startX + right][startY - top] != 1 && arrayField[startX + right][startY - top] >= 0 &&
-                        arrayField[startX + right][startY - top] <= arrayField.length)&&
-                                                //right
-                (arrayField[startX + right][startY] != 1 && arrayField[startX + right][startY] <= arrayField.length) &&
-                                                //right_bottom
-                (arrayField[startX + right][startY + bottom] != 1 && arrayField[startX + right][startY + bottom] <= arrayField[1].length &&
-                        arrayField[startX + right][startY + bottom] <= arrayField.length)&&
-                                                //bot
-                (arrayField[startX][startY + bottom] != 1 && arrayField[startX][startY + bottom] <= arrayField[1].length) &&
-                                                //bot_left
-                (arrayField[startX - left][startY + bottom] != 1 && arrayField[startX - left][startY + bottom] <= arrayField[1].length &&
-                        arrayField[startX - left][startY + top] >= 0)&&
-                                                //left
-                (arrayField[startX - left][startY] != 1 && arrayField[startX - left][startY] >= 0) &&
-                                                //left_top
-                (arrayField[startX - left][startY - top] != 1 && arrayField[startX - left][startY - top] >= 0 &&
-                        arrayField[startX - left][startY - top] >= 0)))
-        {
+        if (isPointEmty(startX, startY)) {
+            return true;
+        } else {
             return false;
         }
-        return true;
     }
 
     private boolean checkTwoShipH(int startX, int startY)
     {
-        int top = 1;
-        int bottom = 1;
-        int left = 1;
-        int right = 1;
-
-        for (int i = 1; i <= stateShip; i++) {
-            if (i == 1) {
-                if (!((arrayField[startX][startY - top] != 1 && arrayField[startX][startY - top] >= 0) &&
-                        (arrayField[startX - left][startY - top] != 1 && arrayField[startX - left][startY - top] >= 0 &&
-                                arrayField[startX - left][startY - top] >= 0) &&
-                        (arrayField[startX - left][startY] != 1 && arrayField[startX - left][startY] >= 0) &&
-                        (arrayField[startX - left][startY + bottom] != 1 && arrayField[startX - left][startY + bottom] <= arrayField[1].length &&
-                                    arrayField[startX - left][startY + top] >= 0) &&
-                        (arrayField[startX][startY + bottom] != 1 && arrayField[startX][startY + bottom] <= arrayField[1].length)&&
-                        (arrayField[startX + right][startY] != 1 && arrayField[startX + right][startY] <= arrayField.length))) {return false;}
-                } else if (i == stateShip)
-                {
-                    startX++;
-                    if(!((arrayField[startX][startY - top] != 1 && arrayField[startX][startY - top] >= 0) &&
-                        (arrayField[startX + right][startY - top] != 1 && arrayField[startX + right][startY - top] >= 0 &&
-                                arrayField[startX + right][startY - top] <= arrayField.length)&&
-                        (arrayField[startX + right][startY] != 1 && arrayField[startX + right][startY] <= arrayField.length) &&
-                        (arrayField[startX + right][startY + bottom] != 1 && arrayField[startX + right][startY + bottom] <= arrayField[1].length &&
-                                arrayField[startX + right][startY + bottom] <= arrayField.length)&&
-                        (arrayField[startX][startY + bottom] != 1 && arrayField[startX][startY + bottom] <= arrayField[1].length) &&
-                            (arrayField[startX - left][startY] != 1 && arrayField[startX - left][startY] >= 0))) {return false;}
+        if(stateShipVerOrHor == 1) {
+            if (isPointEmty(startX, startY)) {
+                if (startX + 1 < 10 && isPointEmty(startX + 1, startY)) {
+                    return true;
+                } else {
+                    return false;
                 }
+            } else {
+                return false;
+            }
+        }else{
+            if (isPointEmty(startX, startY)) {
+                if (startY + 1 < 10 && isPointEmty(startX, startY + 1)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
         }
-        return true;
     }
 
     private boolean checkThreeShipH(int startX, int startY)
     {
-        int top = 1;
-        int bottom = 1;
-        int left = 1;
-        int right = 1;
-
-        for (int i = 1; i <= stateShip; i++) {
-            if (i == 1) {
-                if (!((arrayField[startX][startY - top] != 1 && arrayField[startX][startY - top] >= 0) &&
-                        (arrayField[startX - left][startY - top] != 1 && arrayField[startX - left][startY - top] >= 0 &&
-                                arrayField[startX - left][startY - top] >= 0) &&
-                        (arrayField[startX - left][startY] != 1 && arrayField[startX - left][startY] >= 0) &&
-                        (arrayField[startX - left][startY + bottom] != 1 && arrayField[startX - left][startY + bottom] <= arrayField[1].length &&
-                                arrayField[startX - left][startY + top] >= 0) &&
-                        (arrayField[startX][startY + bottom] != 1 && arrayField[startX][startY + bottom] <= arrayField[1].length))) {return false;}
-                } else if (i > 1 && i < stateShip) {
-                startX++;
-                    if(!((arrayField[startX][startY - top] != 1 && arrayField[startX][startY - top] >= 0) &&
-                            (arrayField[startX + right][startY] != 1 && arrayField[startX + right][startY] <= arrayField.length) &&
-                            (arrayField[startX - left][startY] != 1 && arrayField[startX - left][startY] >= 0) &&
-                            (arrayField[startX][startY + bottom] != 1 && arrayField[startX][startY + bottom] <= arrayField[1].length))){return false;}
-                } else if (i == stateShip) {
-                startX++;
-                    if(!((arrayField[startX][startY - top] != 1 && arrayField[startX][startY - top] >= 0) &&
-                        (arrayField[startX + right][startY - top] != 1 && arrayField[startX + right][startY - top] >= 0 &&
-                                arrayField[startX + right][startY - top] <= arrayField.length)&&
-                        (arrayField[startX + right][startY] != 1 && arrayField[startX + right][startY] <= arrayField.length) &&
-                        (arrayField[startX + right][startY + bottom] != 1 && arrayField[startX + right][startY + bottom] <= arrayField[1].length &&
-                                arrayField[startX + right][startY + bottom] <= arrayField.length)&&
-                        (arrayField[startX][startY + bottom] != 1 && arrayField[startX][startY + bottom] <= arrayField[1].length))){return false;}
+        if(stateShipVerOrHor == 1) {
+            if (isPointEmty(startX, startY)) {
+                if (startX + 1 < 10 && isPointEmty(startX + 1, startY)) {
+                    if (startX + 2 < 11 && isPointEmty(startX + 2, startY)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
                 }
+            } else {
+                return false;
+            }
+        }else{
+            if (isPointEmty(startX, startY)) {
+                if (startY + 1 < 10 && isPointEmty(startX, startY + 1)) {
+                    if (startY + 2 < 11 && isPointEmty(startX, startY + 2)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
         }
-        return true;
     }
 
     private boolean checkFourShipH(int startX, int startY)
     {
-        int top = 1;
-        int bottom = 1;
-        int left = 1;
-        int right = 1;
-
-        for (int i = 1; i <= stateShip; i++) {
-            if (i == 1) {
-                if (!((arrayField[startX][startY - top] != 1 && arrayField[startX][startY - top] >= 0) &&
-                        (arrayField[startX - left][startY - top] != 1 && arrayField[startX - left][startY - top] >= 0 &&
-                                arrayField[startX - left][startY - top] >= 0) &&
-                        (arrayField[startX - left][startY] != 1 && arrayField[startX - left][startY] >= 0) &&
-                        (arrayField[startX - left][startY + bottom] != 1 && arrayField[startX - left][startY + bottom] <= arrayField[1].length &&
-                                arrayField[startX - left][startY + top] >= 0) &&
-                        (arrayField[startX][startY + bottom] != 1 && arrayField[startX][startY + bottom] <= arrayField[1].length))) {return false;}
-            } else if (i > 1 && i < stateShip - 1) {
-                 startX++;
-                if(!((arrayField[startX][startY - top] != 1 && arrayField[startX][startY - top] >= 0) &&
-                        (arrayField[startX + right][startY] != 1 && arrayField[startX + right][startY] <= arrayField.length) &&
-                        (arrayField[startX - left][startY] != 1 && arrayField[startX - left][startY] >= 0) &&
-                        (arrayField[startX][startY + bottom] != 1 && arrayField[startX][startY + bottom] <= arrayField[1].length))){return false;}
-            } else if (i > 1 && i < stateShip) {
-                startX++;
-                if(!((arrayField[startX][startY - top] != 1 && arrayField[startX][startY - top] >= 0) &&
-                        (arrayField[startX + right][startY] != 1 && arrayField[startX + right][startY] <= arrayField.length) &&
-                        (arrayField[startX - left][startY] != 1 && arrayField[startX - left][startY] >= 0) &&
-                        (arrayField[startX][startY + bottom] != 1 && arrayField[startX][startY + bottom] <= arrayField[1].length))){return false;}
-            }else if (i == stateShip) {
-                startX++;
-                if(!((arrayField[startX][startY - top] != 1 && arrayField[startX][startY - top] >= 0) &&
-                        (arrayField[startX + right][startY - top] != 1 && arrayField[startX + right][startY - top] >= 0 &&
-                                arrayField[startX + right][startY - top] <= arrayField.length)&&
-                        (arrayField[startX + right][startY] != 1 && arrayField[startX + right][startY] <= arrayField.length) &&
-                        (arrayField[startX + right][startY + bottom] != 1 && arrayField[startX + right][startY + bottom] <= arrayField[1].length &&
-                                arrayField[startX + right][startY + bottom] <= arrayField.length)&&
-                        (arrayField[startX][startY + bottom] != 1 && arrayField[startX][startY + bottom] <= arrayField[1].length))){return false;}
+        if(stateShipVerOrHor == 1) {
+            if (isPointEmty(startX, startY)) {
+                if (startX + 1 < 10 && isPointEmty(startX + 1, startY)) {
+                    if (startX + 2 < 11 && isPointEmty(startX + 2, startY)) {
+                        if (startX + 3 < 12 && isPointEmty(startX + 3, startY)) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }else{
+            if (isPointEmty(startX, startY)) {
+                if (startY + 1 < 10 && isPointEmty(startX, startY + 1)) {
+                    if (startY + 2 < 11 && isPointEmty(startX, startY + 2)) {
+                        if (startY + 3 < 12 && isPointEmty(startX, startY + 3)) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
             }
         }
-        return true;
     }
-
 }

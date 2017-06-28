@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f3e337b-0b5d-4f8c-884a-8daa281af747" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/WarShip/m/pac/DinamicSecondPanel$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/WarShip/m/pac/DinamicSecondPanel$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/WarShip/m/pac/DinamicSecondPanel$MyButton.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WarShip/m/pac/DinamicPanel$1.class" afterPath="$PROJECT_DIR$/out/production/WarShip/m/pac/DinamicPanel$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WarShip/m/pac/DinamicPanel$2.class" afterPath="$PROJECT_DIR$/out/production/WarShip/m/pac/DinamicPanel$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WarShip/m/pac/DinamicPanel.class" afterPath="$PROJECT_DIR$/out/production/WarShip/m/pac/DinamicPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WarShip/m/pac/DinamicSecondPanel.class" afterPath="$PROJECT_DIR$/out/production/WarShip/m/pac/DinamicSecondPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WarShip/m/pac/Main_Window$1.class" afterPath="$PROJECT_DIR$/out/production/WarShip/m/pac/Main_Window$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WarShip/m/pac/Main_Window$2.class" afterPath="$PROJECT_DIR$/out/production/WarShip/m/pac/Main_Window$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WarShip/m/pac/Main_Window$3.class" afterPath="$PROJECT_DIR$/out/production/WarShip/m/pac/Main_Window$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WarShip/m/pac/Main_Window$4.class" afterPath="$PROJECT_DIR$/out/production/WarShip/m/pac/Main_Window$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WarShip/m/pac/Main_Window.class" afterPath="$PROJECT_DIR$/out/production/WarShip/m/pac/Main_Window.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/m/pac/DinamicPanel.java" afterPath="$PROJECT_DIR$/src/m/pac/DinamicPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/m/pac/DinamicSecondPanel.java" afterPath="$PROJECT_DIR$/src/m/pac/DinamicSecondPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/m/pac/Main_Window.java" afterPath="$PROJECT_DIR$/src/m/pac/Main_Window.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,9 +28,12 @@
             <state relative-caret-position="1105">
               <caret line="69" column="19" lean-forward="false" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
               <folding>
-                <element signature="e#2247#2248#0" expanded="true" />
-                <element signature="e#2336#2337#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#2247#2248#0" expanded="false" />
+                <element signature="e#2336#2337#0" expanded="false" />
                 <element signature="class#2532:2698" expanded="false" />
+                <element signature="e#2641#2642#0" expanded="false" />
+                <element signature="e#2687#2688#0" expanded="false" />
                 <element signature="method#mousePressed#0;class#4235:5273" expanded="false" />
                 <element signature="method#mouseReleased#0;class#4235:5273" expanded="false" />
                 <element signature="method#mouseEntered#0;class#4235:5273" expanded="false" />
@@ -80,11 +72,11 @@
       <file leaf-file-name="DinamicPanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/m/pac/DinamicPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4116">
-              <caret line="327" column="33" lean-forward="false" selection-start-line="327" selection-start-column="33" selection-end-line="330" selection-end-column="35" />
+            <state relative-caret-position="894">
+              <caret line="486" column="30" lean-forward="true" selection-start-line="486" selection-start-column="30" selection-end-line="486" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#mouseReleased#0;class#5502:6405" expanded="false" />
+                <element signature="method#mouseReleased#0;class#6197:7100" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -95,7 +87,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
               <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-              <folding />
+              <folding>
+                <element signature="e#282#283#0" expanded="false" />
+                <element signature="e#310#311#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,7 +110,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1207">
               <caret line="78" column="29" lean-forward="false" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2295#2296#0" expanded="false" />
+                <element signature="e#2360#2361#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,6 +134,7 @@
       <find>mainPanel</find>
       <find>DinamicSecondPanel</find>
       <find>setCor</find>
+      <find>recWidth =</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -182,8 +182,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -488,9 +488,12 @@
         <state relative-caret-position="1139">
           <caret line="67" column="37" lean-forward="false" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
           <folding>
-            <element signature="e#2247#2248#0" expanded="true" />
-            <element signature="e#2336#2337#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2247#2248#0" expanded="false" />
+            <element signature="e#2336#2337#0" expanded="false" />
             <element signature="class#2532:2698" expanded="false" />
+            <element signature="e#2641#2642#0" expanded="false" />
+            <element signature="e#2687#2688#0" expanded="false" />
             <element signature="method#mousePressed#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseReleased#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseEntered#0;class#4235:5273" expanded="false" />
@@ -527,7 +530,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#mouseReleased#0;class#5502:6405" expanded="false" />
+            <element signature="method#mouseReleased#0;class#6197:7100" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -536,7 +539,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2295#2296#0" expanded="false" />
+            <element signature="e#2360#2361#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -555,9 +562,12 @@
         <state relative-caret-position="833">
           <caret line="68" column="26" lean-forward="false" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
           <folding>
-            <element signature="e#2247#2248#0" expanded="true" />
-            <element signature="e#2336#2337#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2247#2248#0" expanded="false" />
+            <element signature="e#2336#2337#0" expanded="false" />
             <element signature="class#2532:2698" expanded="false" />
+            <element signature="e#2641#2642#0" expanded="false" />
+            <element signature="e#2687#2688#0" expanded="false" />
             <element signature="method#mousePressed#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseReleased#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseEntered#0;class#4235:5273" expanded="false" />
@@ -603,9 +613,12 @@
         <state relative-caret-position="833">
           <caret line="68" column="26" lean-forward="false" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
           <folding>
-            <element signature="e#2247#2248#0" expanded="true" />
-            <element signature="e#2336#2337#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2247#2248#0" expanded="false" />
+            <element signature="e#2336#2337#0" expanded="false" />
             <element signature="class#2532:2698" expanded="false" />
+            <element signature="e#2641#2642#0" expanded="false" />
+            <element signature="e#2687#2688#0" expanded="false" />
             <element signature="method#mousePressed#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseReleased#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseEntered#0;class#4235:5273" expanded="false" />
@@ -651,9 +664,12 @@
         <state relative-caret-position="918">
           <caret line="68" column="26" lean-forward="false" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
           <folding>
-            <element signature="e#2247#2248#0" expanded="true" />
-            <element signature="e#2336#2337#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2247#2248#0" expanded="false" />
+            <element signature="e#2336#2337#0" expanded="false" />
             <element signature="class#2532:2698" expanded="false" />
+            <element signature="e#2641#2642#0" expanded="false" />
+            <element signature="e#2687#2688#0" expanded="false" />
             <element signature="method#mousePressed#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseReleased#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseEntered#0;class#4235:5273" expanded="false" />
@@ -699,9 +715,12 @@
         <state relative-caret-position="1190">
           <caret line="70" column="43" lean-forward="false" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
           <folding>
-            <element signature="e#2247#2248#0" expanded="true" />
-            <element signature="e#2336#2337#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2247#2248#0" expanded="false" />
+            <element signature="e#2336#2337#0" expanded="false" />
             <element signature="class#2532:2698" expanded="false" />
+            <element signature="e#2641#2642#0" expanded="false" />
+            <element signature="e#2687#2688#0" expanded="false" />
             <element signature="method#mousePressed#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseReleased#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseEntered#0;class#4235:5273" expanded="false" />
@@ -747,9 +766,12 @@
         <state relative-caret-position="1190">
           <caret line="70" column="43" lean-forward="true" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
           <folding>
-            <element signature="e#2247#2248#0" expanded="true" />
-            <element signature="e#2336#2337#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2247#2248#0" expanded="false" />
+            <element signature="e#2336#2337#0" expanded="false" />
             <element signature="class#2532:2698" expanded="false" />
+            <element signature="e#2641#2642#0" expanded="false" />
+            <element signature="e#2687#2688#0" expanded="false" />
             <element signature="method#mousePressed#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseReleased#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseEntered#0;class#4235:5273" expanded="false" />
@@ -805,9 +827,12 @@
         <state relative-caret-position="323">
           <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
           <folding>
-            <element signature="e#2247#2248#0" expanded="true" />
-            <element signature="e#2336#2337#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2247#2248#0" expanded="false" />
+            <element signature="e#2336#2337#0" expanded="false" />
             <element signature="class#2532:2698" expanded="false" />
+            <element signature="e#2641#2642#0" expanded="false" />
+            <element signature="e#2687#2688#0" expanded="false" />
             <element signature="method#mousePressed#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseReleased#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseEntered#0;class#4235:5273" expanded="false" />
@@ -863,9 +888,12 @@
         <state relative-caret-position="51">
           <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
           <folding>
-            <element signature="e#2247#2248#0" expanded="true" />
-            <element signature="e#2336#2337#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2247#2248#0" expanded="false" />
+            <element signature="e#2336#2337#0" expanded="false" />
             <element signature="class#2532:2698" expanded="false" />
+            <element signature="e#2641#2642#0" expanded="false" />
+            <element signature="e#2687#2688#0" expanded="false" />
             <element signature="method#mousePressed#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseReleased#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseEntered#0;class#4235:5273" expanded="false" />
@@ -911,9 +939,12 @@
         <state relative-caret-position="1020">
           <caret line="60" column="17" lean-forward="false" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
           <folding>
-            <element signature="e#2247#2248#0" expanded="true" />
-            <element signature="e#2336#2337#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2247#2248#0" expanded="false" />
+            <element signature="e#2336#2337#0" expanded="false" />
             <element signature="class#2532:2698" expanded="false" />
+            <element signature="e#2641#2642#0" expanded="false" />
+            <element signature="e#2687#2688#0" expanded="false" />
             <element signature="method#mousePressed#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseReleased#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseEntered#0;class#4235:5273" expanded="false" />
@@ -1002,7 +1033,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1207">
           <caret line="78" column="29" lean-forward="false" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2295#2296#0" expanded="false" />
+            <element signature="e#2360#2361#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1010,7 +1045,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="e#282#283#0" expanded="false" />
+            <element signature="e#310#311#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1019,9 +1057,12 @@
         <state relative-caret-position="1105">
           <caret line="69" column="19" lean-forward="false" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
           <folding>
-            <element signature="e#2247#2248#0" expanded="true" />
-            <element signature="e#2336#2337#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2247#2248#0" expanded="false" />
+            <element signature="e#2336#2337#0" expanded="false" />
             <element signature="class#2532:2698" expanded="false" />
+            <element signature="e#2641#2642#0" expanded="false" />
+            <element signature="e#2687#2688#0" expanded="false" />
             <element signature="method#mousePressed#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseReleased#0;class#4235:5273" expanded="false" />
             <element signature="method#mouseEntered#0;class#4235:5273" expanded="false" />
@@ -1032,11 +1073,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/m/pac/DinamicPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4116">
-          <caret line="327" column="33" lean-forward="false" selection-start-line="327" selection-start-column="33" selection-end-line="330" selection-end-column="35" />
+        <state relative-caret-position="894">
+          <caret line="486" column="30" lean-forward="true" selection-start-line="486" selection-start-column="30" selection-end-line="486" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#mouseReleased#0;class#5502:6405" expanded="false" />
+            <element signature="method#mouseReleased#0;class#6197:7100" expanded="false" />
           </folding>
         </state>
       </provider>
